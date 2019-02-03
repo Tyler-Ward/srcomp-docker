@@ -5,6 +5,10 @@ RUN npm install -g bower && apk add -U git
 WORKDIR /app
 ADD srcomp-screens .
 
+#Fix for bower in a git submodule
+RUN rm .git
+RUN git init
+
 RUN bower install --allow-root
 
 FROM halverneus/static-file-server
