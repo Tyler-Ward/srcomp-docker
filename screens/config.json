@@ -1,0 +1,4 @@
+{
+  "apiurl": "http://compbox/comp-api",
+  "streamurl": "http://compbox/stream"
+}

@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+    srcomp:
+        image: nginx:alpine
+        restart: always
+        networks:
+            - default
+            - traefik
+        volumes:
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        labels:
+            traefik.frontend.rule: "HostRegexp:srcomp.{domain:.*}"
+            traefik.enable: "true"
+            traefik.docker.network: "traefik"
+
+    screens:
+        build: screens
+        restart: always
+
+    stream:
+        build: stream
+        image: stream:latest
+        restart: always
+        environment:
+            - "SRCOMP_URL=http://api/"
+
+    api:
+        build: api
+        image: api:latest
+        volumes:
+            - ./sr2017-comp:/srv/state
+        restart: always
+
+    monitor:
+        build: monitor
+        image: monitor:latest
+        restart: always
+
+networks:
+    traefik:
+        external: true

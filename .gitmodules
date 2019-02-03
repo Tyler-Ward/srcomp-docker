@@ -1,0 +1,12 @@
+[submodule "screens/srcomp-screens"]
+	path = screens/srcomp-screens
+	url = https://github.com/PeterJClaw/srcomp-screens
+	branch = master
+[submodule "monitor/nwatchlive"]
+	path = monitor/nwatchlive
+	url = https://github.com/PeterJClaw/nwatchlive
+	branch = master
+[submodule "stream/srcomp-stream"]
+	path = stream/srcomp-stream
+	url = https://github.com/PeterJClaw/srcomp-stream
+	branch = master
