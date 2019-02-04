@@ -11,5 +11,5 @@ git submodule update
 #download/setup a compsate folder
 #adjust docker-compose file to point at comp repo
 docker-compose build
-docker-compose start
+docker-compose up -d
 ```
